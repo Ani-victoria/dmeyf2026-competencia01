@@ -3,9 +3,9 @@
 **Entrega final:** `entrega_final/FINAL_e6019x40_N11000.csv`
 (11.000 `numero_de_cliente` de 202108, sin encabezado).
 
-## Qué es la predicción final
+## Cómo armé mi predicción final...
 
-Es un **ensamble por promedio de 40 modelos LightGBM**. Todos tienen las mismas variables y los mismos hiperparámetros; solo cambia la semilla:
+Es un **ensamble por promedio de 40 modelos LightGBM**. Todos tienen las mismas variables y los mismos hiperparámetros; solo cambié la semilla:
 
 | Parte | Notebook | Qué aporta |
 |---|---|---|
@@ -19,7 +19,7 @@ La probabilidad final de cada cliente es el promedio simple de las probabilidade
 - **Clase:** `clase01` = BAJA+1 + BAJA+2.
 - **Meses:** entrenamiento final 202103–202106, predicción 202108 (202107 no se usa: no tiene clase).
 - **Variables:**
-  - aguinaldo sin datos del futuro (`mpayroll_sin_sac`, `cobra_aguinaldo`);
+  - aguinaldo  (`mpayroll_sin_sac`, `cobra_aguinaldo`);
   - lags y deltas de orden 1 para todas las variables;
   - lag y delta de orden 2 para una lista fija de 78 variables (escrita en la notebook);
   - 62 rankings "con cero fijo" dentro de cada mes (`rk_*`): 0 → 0, positivos en (0,1], negativos en [−1,0).
@@ -61,6 +61,6 @@ exp/HT6019/zulip/FINAL_e6019x40_N11000.csv   <- la entrega final
 **Verificación:** comparar ese archivo con `entrega_final/FINAL_e6019x40_N11000.csv`.
 
 ### Notas
-- Las celdas que comparan contra otros experimentos (6006, 6016) son solo informativas. Si esos archivos no existen, se saltean solas.
+- Las celdas que comparan contra otros experimentos (6006, 6016) son solo informativas. Si esos archivos no existen, se saltean solas!
 - LightGBM corre multihilo, así que en otra máquina puede haber diferencias ínfimas en las probabilidades y, como mucho, un puñado de clientes distintos cerca del corte 11.000.
-- Si una corrida se corta, se puede volver a hacer **Run All**: las bolsas ya guardadas se saltean.
+
